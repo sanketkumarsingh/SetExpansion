@@ -1,4 +1,4 @@
-To run the program:
+To run the program, import the project as maven project in Eclipse. Build the project and then:
 
 1) Run TestStaticSeisa.java
 
