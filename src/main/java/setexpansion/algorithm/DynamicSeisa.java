@@ -13,28 +13,10 @@ import java.util.Set;
 
 import setexpansion.util.MapUtility;
 
-/*
-Dynamic_Thresholding (𝑠𝑒𝑒𝑑𝑠, 𝑔𝑟𝑎𝑝h) for each 𝑡𝑒𝑟𝑚𝑖 in 𝑔𝑟𝑎𝑝h.𝑡𝑒𝑟𝑚𝑠 do
-𝑅𝑒𝑙_𝑆𝑐𝑜𝑟𝑒[𝑖] ← 𝑆𝑟𝑒𝑙(𝑡𝑒𝑟𝑚𝑖, 𝑠𝑒𝑒𝑑𝑠) end for
-𝐾0 ← Pick_Threshold(𝑅𝑒𝑙_𝑆𝑐𝑜𝑟𝑒[𝑖])
-sort 𝑡𝑒𝑟𝑚𝑖 by 𝑅𝑒𝑙_𝑆𝑐𝑜𝑟𝑒[𝑖] desc
-𝑅0 ← the top ranked 𝐾0 terms by 𝑅𝑒𝑙_𝑆𝑐𝑜𝑟𝑒[𝑖] 𝑖𝑡𝑒𝑟 ← 1
-while 𝑖𝑡𝑒𝑟 ≤ MAX_ITER do
-for each 𝑡𝑒𝑟𝑚𝑖 in 𝑔𝑟𝑎𝑝h.𝑡𝑒𝑟𝑚𝑠 do
-𝑆𝑖𝑚_𝑆𝑐𝑜𝑟𝑒[𝑖] ← 𝑆𝑟𝑒𝑙(𝑡𝑒𝑟𝑚𝑖, 𝑅𝑖𝑡𝑒𝑟−1)
-𝑔(𝑡𝑒𝑟𝑚𝑖) ← 𝛼 ∗ 𝑆𝑖𝑚_𝑆𝑐𝑜𝑟𝑒[𝑖] + (1 − 𝛼) ∗ 𝑅𝑒𝑙_𝑆𝑐𝑜𝑟𝑒[𝑖]
-end for
-𝐾𝑖𝑡𝑒𝑟 ← Pick_Threshold(𝑔(𝑡𝑒𝑟𝑚𝑖))
-sort 𝑡𝑒𝑟𝑚𝑖 by 𝑔(𝑡𝑒𝑟𝑚𝑖) desc
-𝑅𝑖′ ← the top ranked 𝐾𝑖𝑡𝑒𝑟 terms by 𝑔(𝑡𝑒𝑟𝑚𝑖) 𝑅𝑖𝑡𝑒𝑟 ← 𝑅𝑖′𝑡𝑒𝑟
-𝑖𝑡𝑒𝑟 + +
-end while
-return 𝑅𝑖𝑡𝑒𝑟
-*/
 
 /**
- * @author sanket
- *
+ * This class provide the implementation of the Dynamic Thresholding algorithm
+ * @author Sanket and Nawshad
  */
 public class DynamicSeisa {
 	
@@ -42,16 +24,7 @@ public class DynamicSeisa {
 	
 	public static Set<String> getExpandedSet(Set<String> seeds , double alpha)
     {
-        
-        double[][] pairWiseMatrix = { 
-            {1, 0.5, 0.8, 0.7, 0.6, 0.7},    
-            {0.5, 1, 0.6, 0.7, 0.7, 0.5},   
-            {0.8, 0.6, 1, 0, 0.9, 0.3},   
-            {0.7, 0.7, 0, 1, 0.8, 0.5},   
-            {0.6, 0.7, 0.9, 0.8, 1, 0.4}, 
-            {0.7, 0.5, 0.3, 0.5, 0.4, 1}  
-        };
-        
+       
         /*HashMap<String, Integer > dictionary = new HashMap<String, Integer>(){{
             put("a", 0);
             put("b", 1);

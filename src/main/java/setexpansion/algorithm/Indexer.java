@@ -30,8 +30,8 @@ import org.apache.lucene.util.Version;
 import setexpansion.entity.TermInfo;
 
 /**
- *
- * @author John
+ * This class is used to generate the lucene index and perform text search.
+ * @author Sanket
  */
 public class Indexer {
 

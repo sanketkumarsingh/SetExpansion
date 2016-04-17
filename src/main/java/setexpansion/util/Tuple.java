@@ -30,7 +30,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- *
+ * This class is used in preprocessing steps.
  * @author nawshad
  */
 public class Tuple  {

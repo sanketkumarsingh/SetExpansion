@@ -10,6 +10,12 @@ import java.util.Map;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 
+/**
+ * This is data preprocessing class. Commented code refers to different approach tried for pre-processing the data.
+ * 
+ * @author sanket
+ *
+ */
 public class DataReader {
 
 //	public static Map generatePairWiseMatrix(Map<String, Set<String>> uniqueTermsMap)

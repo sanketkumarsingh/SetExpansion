@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- *
- * @author nawshad
+ * This class during preprocessing the file.
+ * @author nawshad and sanket
  */
 public class SumOfPairs {
     public static void sumOfPairs(String inputFile, String outputFile) throws IOException {

@@ -1,5 +1,12 @@
 package setexpansion.entity;
 
+
+/**
+ * This is entity class and encapsulates each term and other information such as termCount.
+ * 
+ * @author sanket
+ *
+ */
 public class TermInfo {
 
 	String term;

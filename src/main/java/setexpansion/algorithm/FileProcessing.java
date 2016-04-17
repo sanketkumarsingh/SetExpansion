@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- *
- * @author nawshad
+ * This class is required to sorting and finding the term pairs.
+ * @author Nawshad and Sanket
  */
 public class FileProcessing {
 
@@ -24,18 +24,7 @@ public class FileProcessing {
         
     SumOfTerms.sumOfTerms("smallTermSorted.txt", "smalltermCount.txt");
     SumOfPairs.sumOfPairs("smallTermPairSorted.txt", "smallTermPairCount.txt");
-//    	File file = new File("smalltermCount.txt");
-//    	if(file.exists()){
-//    		file.delete();
-//    	}
-//    	PrintWriter outFile1 = new PrintWriter(new FileWriter("smalltermCount.txt", true));
-//    	outFile1.println("Hi Sanket");
-//    	outFile1.flush();
-//    	outFile1.close();
-//    	int i =1;
-//    	int j = 10;
-//    	double x = (double)i/(double)j;
-//    	System.out.println(x);
+
     }
         
 }

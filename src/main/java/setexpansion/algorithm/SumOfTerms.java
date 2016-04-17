@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- *
- * @author nawshad modified by sanket
+ * This class is used for preprocessing the data
+ * @author nawshad and sanket
  */
 public class SumOfTerms {
     public static void sumOfTerms(String inputFile, String outputFile) throws IOException{

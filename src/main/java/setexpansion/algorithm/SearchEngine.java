@@ -14,6 +14,12 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
+/**
+ * This class is used by Lucene to perform search.
+ * 
+ * @author sanket
+ *
+ */
 public class SearchEngine {
 	private IndexSearcher searcher = null;
 	private QueryParser parser = null;

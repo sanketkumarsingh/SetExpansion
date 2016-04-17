@@ -21,10 +21,16 @@ import setexpansion.algorithm.SumOfTerms;
 import setexpansion.util.DataReader;
 import setexpansion.util.Tuple;
 
+/**
+ * This is test class for dynamic seisa algorithm.
+ * 
+ * @author sanket
+ *
+ */
 public class TestDynamicSeisa {
 
 	private static int NUM_OF_TEST_PER_FILE = 10;
-	private static int TERM_LENGTH_TO_INCLUDE = 4;
+	private static int TERM_LENGTH_TO_INCLUDE = 6;
 	//private static int SEED_SET_SIZE = 2;
 	private static double[] alphaVal = new double[10];
 	public static ArrayList<String> fileNames;

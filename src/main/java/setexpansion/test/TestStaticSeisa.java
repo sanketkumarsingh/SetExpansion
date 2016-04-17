@@ -21,6 +21,12 @@ import setexpansion.algorithm.SumOfTerms;
 import setexpansion.util.DataReader;
 import setexpansion.util.Tuple;
 
+/**
+ * This is test class for static thresholding algorithm.
+ * 
+ * @author sanket
+ *
+ */
 public class TestStaticSeisa {
 
 	private static int NUM_OF_TEST_PER_FILE = 10;
@@ -30,16 +36,18 @@ public class TestStaticSeisa {
 	public static ArrayList<String> fileNames;
 
 	public static void main(String[] args) throws IOException {
-		double alpha = 0.4;
-		//for (int i = 0; i < 9; i++) {
-                        alphaVal[0] = alpha;
-			//alpha = alpha + 0.1;
-		//}
+		double alpha = 0.1;
+		for (int i = 0; i < 9; i++) {
+			alphaVal[i] = alpha;
+			alpha = alpha + 0.1;
+		}
 		List<Integer> seedList = new ArrayList();
-		/*seedList.add(2);*/
+
+		seedList.add(2);
 		seedList.add(3);
-		//seedList.add(4);
-		/*seedList.add(6);*/
+		seedList.add(4);
+		seedList.add(6);
+
 		fileNames = new ArrayList();
 		String splitFolder = "./SplitSeisa";
 		File folder = new File(splitFolder);
@@ -133,7 +141,7 @@ public class TestStaticSeisa {
 				PrintWriter outFile4 = new PrintWriter(new FileWriter(outputAvgAlhpaPrecisionFile, true));
 				PrintWriter outFile5 = new PrintWriter(new FileWriter(outputAvgAlhpaRecallFile, true));
 				
-				for (int index = 0; index < 1; index++) {
+				for (int index = 0; index < 9; index++) {
 					System.out.println("Calculating for alhpa=" + alphaVal[index]);
 					Iterator iter = (Iterator) removedData.entrySet().iterator();
 					outFileName = "./" + result + "/result-" + fileNames.get(i) + "-seed="+SEED_SET_SIZE+"-alpha=" + alphaVal[index] + ".txt";
@@ -166,16 +174,13 @@ public class TestStaticSeisa {
 						ArrayList<String> groundTruth = (ArrayList<String>) entry.getValue();
 						String listId = (String) entry.getKey();
 						Set<String> seeds = new HashSet();
-                                                String seedsVal = "";
 						for (int ss = 0; ss < SEED_SET_SIZE; ss++) {
 							seeds.add(groundTruth.get(ss));
-                                                        seedsVal = seedsVal + groundTruth.get(ss) + " ";
 							// seeds.add(groundTruth.get(1));
 						}
-                                                System.out.println("Seeds are:" + seedsVal);
-						
 						// seeds.add(groundTruth.get(0));
 						// .add(groundTruth.get(1));
+						System.out.println("Seeds are:" + groundTruth.get(0) + " " + groundTruth.get(1));
 						Set<String> expandedSet = StaticThreshold.getExpandedSet(seeds, alphaVal[index]);
 						// outFile2.println("For Listid: "+ listId + " ,Seeds
 						// are:"+
@@ -196,6 +201,7 @@ public class TestStaticSeisa {
 						// outFile2.flush();
 						double precision = getPrecision(groundTruth, expandedSet);
 						double recall = getRecall(groundTruth, expandedSet);
+						
 						System.out.println("Precision:" + precision + " Recall:" + recall);
 						// outFile2.println("Precision:" + precision + "
 						// Recall:" +

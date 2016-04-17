@@ -3,6 +3,11 @@ package setexpansion.util;
 import java.util.Set;
 
 import com.google.common.collect.Sets;
+/**
+ * This class is used to calculate the jaccard similarity.
+ * @author sanket
+ *
+ */
 public class Util {
 
 	public static double getSimilarity(Set<String> listI, Set<String> listJ) {

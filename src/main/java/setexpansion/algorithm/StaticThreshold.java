@@ -5,7 +5,6 @@
  */
 package setexpansion.algorithm;
 
-import java.util.ArrayList;
 import setexpansion.util.MapUtility;
 import static setexpansion.util.MapUtility.DESC;
 import static setexpansion.util.MapUtility.sortByComparator;
@@ -15,7 +14,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- *
+ * This class provide the implementation of Static Threshold algorithm.
  * @author nawshad and sanket
  */
 public class StaticThreshold {
@@ -47,10 +46,11 @@ public class StaticThreshold {
 		Set<String> prevRelTerms = topKRelScores.keySet();
 		String prevIterA = "";
 		String prevIterR = "";
-                int i = 0;
+		int i = 0;
 		while (true) {
 			// System.out.println("\n");
 			// System.out.println("Iter:" + iter);
+			i = i + 1;
 			Map<String, Double> simScoreMap = mUtil.findRelScore(dictionary, prevRelTerms);
 			// System.out.println("Sim Scores:");
 			// mUtil.printMap(simScoreMap);
@@ -59,27 +59,26 @@ public class StaticThreshold {
 			// System.out.println("g Scores:");
 			// mUtil.printMap(gScoreMap);
 			Map<String, Double> sortedGScoreMap = sortByComparator(gScoreMap, DESC);
-			//System.out.println(sortedGScoreMap);
+			// System.out.println(sortedGScoreMap);
 			Set<String> nextRelTerms = mUtil.findTopKSet(sortedGScoreMap, topKSetSize).keySet();
-                        
-                        if(i%100 == 0){
-                            System.out.print("prevRelTerms: ");
-                            Iterator it = prevRelTerms.iterator();
-                            while (it.hasNext()) {
-                                    System.out.print(it.next() + " ");
-                            }
-                            System.out.println();
-                            System.out.print("nextRelTerms: ");
-                            it = nextRelTerms.iterator();
-                            while (it.hasNext()) {
-                                    System.out.print(it.next() + " ");
-                            }
-                            System.out.println("\n");
-                            
-                        }
-			
+			if(i%100 ==0){
+			System.out.print("prevRelTerms: ");
+			Iterator it = prevRelTerms.iterator();
+			while (it.hasNext()) {
+				System.out.print(it.next() + " ");
+			}
+			System.out.println();
+			System.out.print("nextRelTerms: ");
+			it = nextRelTerms.iterator();
+			while (it.hasNext()) {
+				System.out.print(it.next() + " ");
+			}
+			System.out.println("\n");
+			}
 			if (MapUtility.isSetDifferent(nextRelTerms, prevRelTerms)) // if
-														// different
+																		// sets
+																		// are
+																		// different
 			{
 				Set diffSet = MapUtility.getDifferenceInIter(nextRelTerms, prevRelTerms);
 				String a = (String) diffSet.iterator().next();
@@ -108,7 +107,7 @@ public class StaticThreshold {
 
 				break;
 			}
-                        i++;
+
 			iter++;
 
 		}
@@ -120,15 +119,4 @@ public class StaticThreshold {
 		// }
 		return prevRelTerms;
 	}
-        
-        public static void main(String args[]){
-            Set <String> seeds = new HashSet();
-            seeds.add("Australia");
-            seeds.add("Algeria");
-            Set<String> result = getExpandedSet(seeds , 0.5);
-            Iterator it = result.iterator();
-            while(it.hasNext()){
-                System.out.print(it.next() + " ");
-            }
-        }
 }

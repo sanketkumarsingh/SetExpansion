@@ -6,8 +6,8 @@
 package setexpansion.util;
 
 /**
- *
- * @author nawshad
+ * This is the Utility class and contain methods used by static and dynamic seisa. 
+ * @author nawshad and sanket
  */
 import com.google.common.collect.Sets;
 import java.io.File;
