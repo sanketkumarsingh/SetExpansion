@@ -1,3 +1,7 @@
+This project contains implementation of SIESA algorithm and our enhancements to it.
+
+<b>Configuration requirement to run:<b>
+
 Maven have to be installed in the system to build and run this program.
 
 Build the project using the command (cd to Project Folder): 
